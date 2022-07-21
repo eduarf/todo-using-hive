@@ -1,6 +1,7 @@
 # github_todo
 
-A new Flutter project.
+This Project was built using hive localstorage and provider not used only setState.
+This project is for beginner and mid level person
 
 ## Getting Started
 
