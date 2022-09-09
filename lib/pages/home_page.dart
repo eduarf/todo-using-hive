@@ -17,6 +17,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late List<Task> _allList;
   late LocalStorage _localStorage;
+  final String appBarText = 'What do you do today?';
+  final String hintText = 'Add a task';
+  final String deletedText = 'Task is deleted';
 
   void getAllTask() async{
     _allList = await _localStorage.returnAllTask();
@@ -55,8 +58,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        title: const Text(
-          "What do you do today?",
+        title: Text(
+          appBarText,
           style: styleBold,
         ),
         actions: [
@@ -83,7 +86,7 @@ class _HomePageState extends State<HomePage> {
             return Dismissible(
               background: Row(
                 children: [
-                  Text("Task is deleted", style: styleTask.copyWith(color: colorRed),),
+                  Text(deletedText, style: styleTask.copyWith(color: colorRed),),
                 ],
               ),
               key: Key(currentTask.uuid),
@@ -119,17 +122,18 @@ class _HomePageState extends State<HomePage> {
     showModalBottomSheet(
         context: context,
         builder: (context) {
+          
           return Container(
             padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
             child: Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: Paddings.paddingLeft,
               child: TextField(
                 style: styleBold.copyWith(color: colorWhite),
                 autofocus: true,
                 keyboardType: TextInputType.name,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: 'Add a task',
+                  hintText: hintText,
                 ),
                 onSubmitted: (value) {
                   DatePicker.showTimePicker(context,

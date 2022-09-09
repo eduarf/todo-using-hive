@@ -16,6 +16,7 @@ class TaskWidget extends StatefulWidget {
 
 class _TaskWidgetState extends State<TaskWidget> {
   late LocalStorage _localStorage;
+  final String editHintText = 'Edit a task';
   @override
   void initState() {
     _localStorage = getIt<LocalStorage>();
@@ -52,14 +53,14 @@ class _TaskWidgetState extends State<TaskWidget> {
         return Container(
             padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
             child: Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: Paddings.paddingLeft,
               child: TextField(
                 style: styleBold.copyWith(color: colorWhite),
                 autofocus: true,
                 keyboardType: TextInputType.name,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintText: 'Edit a task',
+                  hintText: editHintText,
                 ),
                 onSubmitted: (newValue) {
                   DatePicker.showTimePicker(context,

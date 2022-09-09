@@ -20,3 +20,7 @@ const TextStyle styleTask = TextStyle(
   fontSize: 16,
   letterSpacing: 1,
 );
+
+class Paddings {
+  static const paddingLeft = EdgeInsets.only(left: 10);
+}
