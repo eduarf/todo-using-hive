@@ -1,7 +1,7 @@
 # github_todo
 
 This Project was built using hive localstorage and provider not used only setState.
-This project is for beginner and mid level person
+This project is for beginner and mid level developers
 
 ## Getting Started
 
